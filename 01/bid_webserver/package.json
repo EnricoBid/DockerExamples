@@ -1,0 +1,13 @@
+{
+  "name": "bid_webserver",
+  "version": "1.0.0",
+  "description": "a docker bid webserver",
+  "author": "Enrico Ruggiano <enrico.ruggiano@bidcompany.it>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+} 
