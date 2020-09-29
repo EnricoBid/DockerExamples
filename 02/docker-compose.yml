@@ -1,0 +1,25 @@
+version: "3"
+services:
+  gitlab-server:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    hostname: 'localhost'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://localhost'
+        # Add any other gitlab.rb configuration here, each on its own line
+    ports:
+      - '80:80'
+      - '443:443'
+      - '2200:22'
+    volumes:
+      - './gitlab-server/config:/etc/gitlab'
+      - './gitlab-server/logs:/var/log/gitlab'
+      - './gitlab-server/data:/var/opt/gitlab' 
+
+  git-jupyter:
+    build: git-jupyter
+    ports:
+      - "8888:8888" 
+    environment:
+       - JUPYTER_ENABLE_LAB=yes
